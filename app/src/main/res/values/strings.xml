@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NoteIt</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="notes_fragment_label">Notes</string>
+    <string name="todo_fragment_label">Todo</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
