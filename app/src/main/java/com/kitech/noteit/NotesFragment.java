@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.kitech.noteit.databinding.FragmentFirstBinding;
+import com.kitech.noteit.databinding.FragmentNotesBinding;
 
 public class NotesFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentNotesBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class NotesFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentNotesBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -34,6 +34,14 @@ public class NotesFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(NotesFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
+            }
+        });
+
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(NotesFragment.this)
+                        .navigate(R.id.action_NotesFragment_to_createNoteFragment);
             }
         });
     }

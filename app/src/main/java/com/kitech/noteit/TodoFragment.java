@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.kitech.noteit.databinding.FragmentSecondBinding;
+import com.kitech.noteit.databinding.FragmentTodoBinding;
 
 public class TodoFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentTodoBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class TodoFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentTodoBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

@@ -9,20 +9,28 @@
         android:id="@+id/NotesFragment"
         android:name="com.kitech.noteit.NotesFragment"
         android:label="@string/notes_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_notes">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/TodoFragment" />
+        <action
+            android:id="@+id/action_NotesFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment" />
     </fragment>
     <fragment
         android:id="@+id/TodoFragment"
         android:name="com.kitech.noteit.TodoFragment"
         android:label="@string/todo_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_todo">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/NotesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.kitech.noteit.CreateNoteFragment"
+        android:label="create_note_fragment"
+        tools:layout="@layout/fragment_create_note" />
 </navigation>
