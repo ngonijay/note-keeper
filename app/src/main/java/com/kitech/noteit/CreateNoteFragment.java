@@ -7,14 +7,24 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kitech.noteit.databinding.FragmentCreateNoteBinding;
+import com.kitech.noteit.databinding.FragmentNotesBinding;
+import com.kitech.noteit.utils.CustomDateTimeMethods;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class CreateNoteFragment extends Fragment {
 
     private CreateNoteViewModel mViewModel;
+    private FragmentCreateNoteBinding mBinding;
 
     public static CreateNoteFragment newInstance() {
         return new CreateNoteFragment();
@@ -23,14 +33,13 @@ public class CreateNoteFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_create_note, container, false);
+        mBinding = FragmentCreateNoteBinding.inflate(inflater, container, false);
+        return mBinding.getRoot();
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CreateNoteViewModel.class);
-        // TODO: Use the ViewModel
-    }
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        mBinding.noteCreatedTimeTxt.setText(CustomDateTimeMethods.getCurrentLocalDateTime());
+    }
 }
