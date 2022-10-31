@@ -1,4 +1,4 @@
-package com.kitech.noteit;
+package com.kitech.noteit.ui;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kitech.noteit.R;
 import com.kitech.noteit.databinding.ActivityNoteItBinding;
 
 public class NoteItActivity extends AppCompatActivity {
