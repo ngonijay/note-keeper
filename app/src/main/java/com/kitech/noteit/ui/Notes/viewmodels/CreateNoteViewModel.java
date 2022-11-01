@@ -35,4 +35,9 @@ public class CreateNoteViewModel extends AndroidViewModel {
     public void updateNote(NoteEntity noteEntity) {
         noteDao.updateNote(noteEntity);
     }
+
+    public void deleteNote(long mNoteId) {
+        noteDao.deleteNoteById(mNoteId);
+
+    }
 }

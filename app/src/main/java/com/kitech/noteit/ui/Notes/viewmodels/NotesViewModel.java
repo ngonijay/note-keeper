@@ -29,4 +29,7 @@ public class NotesViewModel extends AndroidViewModel {
         return mNotes =  notesDao.getAll();
     }
 
+    public void deleteAll() {
+        notesDao.deleteAll();
+    }
 }

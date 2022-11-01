@@ -2,6 +2,7 @@ package com.kitech.noteit.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -24,4 +25,10 @@ public interface NoteDao {
 
     @Update
     void updateNote(NoteEntity noteEntity);
+
+    @Query("Delete from notes")
+    void deleteAll();
+
+    @Query("Delete from notes where id=:id")
+    void deleteNoteById(long id);
 }
