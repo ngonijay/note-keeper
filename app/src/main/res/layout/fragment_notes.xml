@@ -21,7 +21,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_plus_line_icon__1_" />
+        app:srcCompat="@drawable/ic_plus_line_icon__2_" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notesRecyclerView"
