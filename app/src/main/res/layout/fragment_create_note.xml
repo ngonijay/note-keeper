@@ -7,6 +7,15 @@
     tools:context=".ui.Notes.CreateNoteFragment">
 
 
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/general_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteTitleTextInputLayout"
         android:layout_width="match_parent"
@@ -14,7 +23,7 @@
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/noteTitleTextEditText"
@@ -23,7 +32,7 @@
             android:background="@color/white"
             android:hint="@string/note_title"
             android:singleLine="true"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -32,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Today : 13:56)"
+        android:text="@string/date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteTitleTextInputLayout" />
 
@@ -40,21 +49,16 @@
         android:id="@+id/noteMessageTextEditText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingLeft="10dp"
         android:ems="10"
+        android:textSize="20sp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        android:background="@color/white"
+        android:hint="@string/text"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noteCreatedTimeTxt" />
-
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
