@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -19,7 +18,7 @@ import com.kitech.noteit.ui.Notes.viewmodels.NotesViewModel;
 
 import java.util.List;
 
-public class NotesFragment extends Fragment {
+public class NotesFragment extends Fragment  {
 
     private FragmentNotesBinding binding;
     private NotesViewModel mViewModel;
@@ -41,11 +40,14 @@ public class NotesFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         getNotes();
+
         binding.addNewNoteButton.setOnClickListener(view1 -> NavHostFragment.findNavController(NotesFragment.this)
                 .navigate(R.id.action_NotesFragment_to_createNoteFragment));
 
     }
+
 
     private void getNotes() {
         mViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes ->{
@@ -57,9 +59,18 @@ public class NotesFragment extends Fragment {
     }
 
     private void loadNotes(List<NoteEntity> notes) {
-        notesAdapter = new NoteRecyclerViewAdapter();
+        notesAdapter = new NoteRecyclerViewAdapter(noteId ->
+        loadNoteDetails(noteId)
+        );
         binding.notesRecyclerView.setAdapter(notesAdapter);
         notesAdapter.setNotes(notes);
+    }
+
+    private void loadNoteDetails(long noteId) {
+        Bundle bundle = new Bundle();
+        bundle.putLong("NOTE_ID", noteId);
+        NavHostFragment.findNavController(NotesFragment.this)
+                .navigate(R.id.action_NotesFragment_to_createNoteFragment, bundle);
     }
 
     @Override

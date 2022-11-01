@@ -20,9 +20,9 @@
             android:id="@+id/noteTitleTextEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:hint="@string/note_title"
             android:singleLine="true"
-            android:background="@color/white"
             android:textSize="28sp"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,6 +56,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

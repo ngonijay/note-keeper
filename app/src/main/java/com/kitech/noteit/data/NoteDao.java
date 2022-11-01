@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.kitech.noteit.domain.NoteEntity;
 
@@ -12,9 +13,15 @@ import java.util.List;
 @Dao
 public interface NoteDao {
 
+    @Query("SELECT * from notes where id=:id")
+    LiveData<NoteEntity> getNoteById(long id);
+
     @Query("SELECT * from notes")
     LiveData<List<NoteEntity>> getAll();
 
     @Insert
     void insertNote(NoteEntity note);
+
+    @Update
+    void updateNote(NoteEntity noteEntity);
 }
