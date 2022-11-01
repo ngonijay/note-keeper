@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteIt">
         <activity
-            android:name=".ui.NoteItActivity"
+            android:name=".ui.Notes.NoteItActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.NoteIt.NoActionBar">

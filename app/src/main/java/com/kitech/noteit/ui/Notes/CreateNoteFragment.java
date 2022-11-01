@@ -1,4 +1,4 @@
-package com.kitech.noteit.ui;
+package com.kitech.noteit.ui.Notes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.kitech.noteit.databinding.FragmentCreateNoteBinding;
 import com.kitech.noteit.domain.NoteEntity;
-import com.kitech.noteit.ui.viewmodels.CreateNoteViewModel;
+import com.kitech.noteit.ui.Notes.viewmodels.CreateNoteViewModel;
 import com.kitech.noteit.utils.CustomDateTimeMethods;
 
 import java.util.Objects;

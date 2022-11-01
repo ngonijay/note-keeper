@@ -1,4 +1,4 @@
-package com.kitech.noteit.ui;
+package com.kitech.noteit.ui.Notes;
 
 import android.os.Bundle;
 import android.view.Menu;

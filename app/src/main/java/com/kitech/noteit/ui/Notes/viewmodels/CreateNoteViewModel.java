@@ -1,4 +1,4 @@
-package com.kitech.noteit.ui.viewmodels;
+package com.kitech.noteit.ui.Notes.viewmodels;
 
 import android.app.Application;
 
