@@ -1,26 +1,29 @@
-package com.kitech.noteit.ui;
+package com.kitech.noteit.ui.Notes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.kitech.noteit.R;
-import com.kitech.noteit.databinding.FragmentCreateNoteBinding;
 import com.kitech.noteit.databinding.FragmentNotesBinding;
-import com.kitech.noteit.ui.viewmodels.CreateNoteViewModel;
-import com.kitech.noteit.ui.viewmodels.NotesViewModel;
+import com.kitech.noteit.domain.NoteEntity;
+import com.kitech.noteit.ui.Notes.viewmodels.NotesViewModel;
+
+import java.util.List;
 
 public class NotesFragment extends Fragment {
 
     private FragmentNotesBinding binding;
     private NotesViewModel mViewModel;
+    private NoteRecyclerViewAdapter notesAdapter;
 
     @Override
     public View onCreateView(
@@ -38,14 +41,25 @@ public class NotesFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-
-        binding.buttonFirst.setOnClickListener(view12 -> NavHostFragment.findNavController(NotesFragment.this)
-                .navigate(R.id.action_FirstFragment_to_SecondFragment));
-
-        binding.fab.setOnClickListener(view1 -> NavHostFragment.findNavController(NotesFragment.this)
+        getNotes();
+        binding.addNewNoteButton.setOnClickListener(view1 -> NavHostFragment.findNavController(NotesFragment.this)
                 .navigate(R.id.action_NotesFragment_to_createNoteFragment));
+
+    }
+
+    private void getNotes() {
+        mViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes ->{
+            if (!notes.isEmpty())
+                loadNotes(notes);
+            else
+                Toast.makeText(getContext(), "no notes", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void loadNotes(List<NoteEntity> notes) {
+        notesAdapter = new NoteRecyclerViewAdapter();
+        binding.notesRecyclerView.setAdapter(notesAdapter);
+        notesAdapter.setNotes(notes);
     }
 
     @Override
