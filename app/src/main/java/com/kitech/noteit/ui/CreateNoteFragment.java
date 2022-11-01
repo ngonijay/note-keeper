@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.kitech.noteit.databinding.FragmentCreateNoteBinding;
 import com.kitech.noteit.domain.NoteEntity;
+import com.kitech.noteit.ui.viewmodels.CreateNoteViewModel;
 import com.kitech.noteit.utils.CustomDateTimeMethods;
 
 import java.util.Objects;

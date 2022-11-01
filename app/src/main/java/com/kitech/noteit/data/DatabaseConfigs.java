@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.kitech.noteit.domain.NoteEntity;
 
-@Database(entities = {NoteEntity.class}, version = 2)
+@Database(entities = {NoteEntity.class}, version = 3)
 public abstract class DatabaseConfigs extends RoomDatabase {
     private static final String DB_NAME = "notes_db";
     private  static  DatabaseConfigs instance;
