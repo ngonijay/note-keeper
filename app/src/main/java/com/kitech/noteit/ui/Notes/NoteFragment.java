@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.kitech.noteit.R;
-import com.kitech.noteit.databinding.FragmentCreateNoteBinding;
+import com.kitech.noteit.databinding.FragmentNoteBinding;
 import com.kitech.noteit.domain.NoteEntity;
 import com.kitech.noteit.ui.Notes.viewmodels.CreateNoteViewModel;
 import com.kitech.noteit.utils.CONSTANTS;
@@ -24,36 +24,40 @@ import com.kitech.noteit.utils.CustomDateTimeMethods;
 
 import java.util.Objects;
 
-public class CreateNoteFragment extends Fragment {
+public class NoteFragment extends Fragment {
 
     private CreateNoteViewModel mViewModel;
-    private FragmentCreateNoteBinding mBinding;
+    private FragmentNoteBinding mBinding;
     private long mNoteId;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mBinding = FragmentCreateNoteBinding.inflate(inflater, container, false);
+        mBinding = FragmentNoteBinding.inflate(inflater, container, false);
         mViewModel = new ViewModelProvider(this).get(CreateNoteViewModel.class);
         return mBinding.getRoot();
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         if (getArguments() != null) {
             mNoteId = getArguments().getLong(CONSTANTS.NOTE_ID);
+
+            if (mNoteId != 0)
+                prepopulateNoteFields(mNoteId);
+
         }
+
         initializeView();
+
         mBinding.noteCreatedTimeTxt.setText(CustomDateTimeMethods.getCurrentLocalDateTime());
     }
 
     private void initializeView() {
 
-        if (mNoteId != 0)
-            prepopulateNoteFields(mNoteId);
-
-        mBinding.toolbar.generalToolbar.setTitle(R.string.add_note);
-        mBinding.toolbar.generalToolbar.addMenuProvider(new MenuProvider() {
+        mBinding.toolbar.setTitle(R.string.add_note);
+        mBinding.toolbar.addMenuProvider(new MenuProvider() {
             @Override
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
                 menuInflater.inflate(R.menu.menu_main, menu);

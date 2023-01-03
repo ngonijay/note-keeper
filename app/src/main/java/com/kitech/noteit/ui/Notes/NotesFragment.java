@@ -57,8 +57,8 @@ public class NotesFragment extends Fragment  {
 
     private void initializeView() {
 
-        binding.toolbar.generalToolbar.setTitle(R.string.notes_fragment_label);
-        binding.toolbar.generalToolbar.addMenuProvider(new MenuProvider() {
+        binding.toolbar.setTitle(R.string.notes_fragment_label);
+        binding.toolbar.addMenuProvider(new MenuProvider() {
             @Override
             public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
                 menuInflater.inflate(R.menu.note_fragement_menu, menu);
@@ -82,9 +82,9 @@ public class NotesFragment extends Fragment  {
         mViewModel.getAllNotes().observe(getViewLifecycleOwner(), notes ->{
             if (!notes.isEmpty())
                 loadNotes(notes);
-            else
+            else{
                 loadNotes(Collections.emptyList());
-                Toast.makeText(getContext(), R.string.no_notes_found, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.no_notes_found, Toast.LENGTH_SHORT).show();}
         });
     }
 

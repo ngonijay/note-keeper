@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNoteFragment"
-        android:name="com.kitech.noteit.ui.Notes.CreateNoteFragment"
+        android:name="com.kitech.noteit.ui.Notes.NoteFragment"
         android:label="create_note_fragment"
-        tools:layout="@layout/fragment_create_note" />
+        tools:layout="@layout/fragment_note" />
 </navigation>
