@@ -6,7 +6,7 @@
     <string name="action_delete_all_note">Delete all</string>
     <!-- Strings used for fragments for navigation -->
     <string name="notes_fragment_label">Notes</string>
-    <string name="todo_fragment_label">Todo</string>
+    <string name="todos_fragment_label">Todos</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -19,4 +19,7 @@
     <string name="note_saved_message">Note saved!</string>
     <string name="no_notes_found">no notes found</string>
     <string name="add_note">Add Note</string>
+    <string name="todo_title">Todo</string>
+    <string name="todo_time_picker">Todo time picker</string>
+    <string name="todo_priority_tag">Todo priority tag</string>
 </resources>

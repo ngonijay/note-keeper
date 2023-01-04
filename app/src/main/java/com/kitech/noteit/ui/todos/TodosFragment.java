@@ -1,4 +1,4 @@
-package com.kitech.noteit.ui;
+package com.kitech.noteit.ui.todos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,14 +7,17 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.kitech.noteit.R;
-import com.kitech.noteit.databinding.FragmentTodoBinding;
+import com.kitech.noteit.databinding.FragmentTodosBinding;
+import com.kitech.noteit.ui.Notes.NotesFragment;
 
-public class TodoFragment extends Fragment {
 
-    private FragmentTodoBinding binding;
+public class TodosFragment extends Fragment {
+
+    private FragmentTodosBinding binding;
 
     @Override
     public View onCreateView(
@@ -22,14 +25,21 @@ public class TodoFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentTodoBinding.inflate(inflater, container, false);
+        binding = FragmentTodosBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initializeView();
 
+    }
+    private void initializeView() {
+        binding.addNewTodoButton.setOnClickListener(view -> {
+            NavHostFragment.findNavController(TodosFragment.this)
+                    .navigate(R.id.action_TodosFragment_to_todoDialogFragment);
+        });
     }
 
     @Override

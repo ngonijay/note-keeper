@@ -13,24 +13,32 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/TodoFragment" />
+            app:destination="@id/TodosFragment" />
         <action
             android:id="@+id/action_NotesFragment_to_createNoteFragment"
             app:destination="@id/createNoteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/TodoFragment"
-        android:name="com.kitech.noteit.ui.TodoFragment"
-        android:label="@string/todo_fragment_label"
-        tools:layout="@layout/fragment_todo">
+        android:id="@+id/TodosFragment"
+        android:name="com.kitech.noteit.ui.todos.TodosFragment"
+        android:label="@string/todos_fragment_label"
+        tools:layout="@layout/fragment_todos">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/NotesFragment" />
+        <action
+            android:id="@+id/action_TodosFragment_to_todoDialogFragment"
+            app:destination="@id/todoDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/createNoteFragment"
         android:name="com.kitech.noteit.ui.Notes.NoteFragment"
         android:label="create_note_fragment"
         tools:layout="@layout/fragment_note" />
+    <dialog
+        android:id="@+id/todoDialogFragment"
+        android:name="com.kitech.noteit.ui.todos.TodoDialogFragment"
+        android:label="fragment_todo_dialog_list_dialog"
+        tools:layout="@layout/fragment_todo_dialog_list_dialog" />
 </navigation>
