@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.kitech.noteit.databinding.FragmentTodoDialogListDialogBinding;
 
+import java.util.Objects;
+
 
 /**
  * <p>A fragment that shows a list of items as a modal bottom sheet.</p>
@@ -46,7 +48,27 @@ public class TodoDialogFragment extends BottomSheetDialogFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        viewInit();
+    }
 
+    private void viewInit() {
+        binding.saveTodoButton.setOnClickListener(view ->{
+           saveTodo(validateTodoFields());
+        });
+    }
+
+    private void saveTodo(boolean isFieldValid) {
+        if (isFieldValid){
+            //todo:save todo
+
+        } else{
+            //todo:show message
+        }
+    }
+
+    private boolean validateTodoFields() {
+        //check if fields are populated
+        return !Objects.requireNonNull(binding.todoTextEditText.getText()).toString().isEmpty();
     }
 
     @Override

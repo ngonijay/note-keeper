@@ -52,5 +52,15 @@
         app:srcCompat="@drawable/ic_baseline_priority_high_24"
         app:tint="?attr/colorError" />
 
+    <Button
+        android:id="@+id/saveTodoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todoTextInputLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
