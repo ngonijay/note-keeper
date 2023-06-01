@@ -7,9 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.kitech.noteit.databinding.FragmentTodoDialogListDialogBinding;
+import com.kitech.noteit.domain.TodoEntity;
+import com.kitech.noteit.ui.Notes.viewmodels.CreateNoteViewModel;
+import com.kitech.noteit.utils.CustomDateTimePicker;
 
 import java.util.Objects;
 
@@ -26,6 +31,7 @@ public class TodoDialogFragment extends BottomSheetDialogFragment {
     // TODO: Customize parameter argument names
     private static final String ARG_ITEM_COUNT = "item_count";
     private FragmentTodoDialogListDialogBinding binding;
+    private TodoViewModel todoViewModel;
 
     // TODO: Customize parameters
     public static TodoDialogFragment newInstance(int itemCount) {
@@ -40,7 +46,7 @@ public class TodoDialogFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        todoViewModel = new ViewModelProvider(this).get(TodoViewModel.class);
         binding = FragmentTodoDialogListDialogBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -55,12 +61,23 @@ public class TodoDialogFragment extends BottomSheetDialogFragment {
         binding.saveTodoButton.setOnClickListener(view ->{
            saveTodo(validateTodoFields());
         });
+
+        binding.totDoTimePicker.setOnClickListener(view ->{
+
+                DialogFragment newFragment = new CustomDateTimePicker();
+                newFragment.show(getChildFragmentManager(), "timePicker");
+
+        });
+
     }
 
     private void saveTodo(boolean isFieldValid) {
         if (isFieldValid){
             //todo:save todo
-
+            TodoEntity todo = new TodoEntity();
+            todo.setTodoMessage(binding.todoTextEditText.getText().toString());
+            todo.getTodoDateTime(binding.totDoTimePicker.)
+            todoViewModel.saveTodo();
         } else{
             //todo:show message
         }
